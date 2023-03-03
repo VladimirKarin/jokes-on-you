@@ -1,4 +1,3 @@
-import JokeContent from './JokeComponent';
 import './App.css';
 import { useEffect, useState } from 'react';
 
@@ -28,19 +27,27 @@ function App() {
     return <div>Loading...</div>;
   } else {
     return (
-      <ul>
-        {items.jokes.map((item) => {
-          if (item.type === 'single') {
-            return <li>{item.joke}</li>;
-          } else {
-            return (
-              <li>
-                {item.setup} {item.delivery}
-              </li>
-            );
-          }
-        })}
-      </ul>
+      <>
+        <h1>Joke List</h1>
+        <div>
+          {items.jokes.map((item) => {
+            if (item.type === 'single') {
+              return (
+                <div key={item.id} className='tile'>
+                  <p>{item.joke}</p>
+                </div>
+              );
+            } else {
+              return (
+                <div key={item.id} className='tile'>
+                  <p> Setup: {item.setup}</p>
+                  <p> Delivery: {item.delivery}</p>
+                </div>
+              );
+            }
+          })}
+        </div>
+      </>
     );
   }
 }
