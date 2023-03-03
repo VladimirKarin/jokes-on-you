@@ -28,7 +28,7 @@ function App() {
     return (
       <>
 
-        <h1>Joke List</h1>
+        <h1>Programmers Jokes</h1>
 
         <div>
 
